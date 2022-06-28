@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>Frontend Mentor | Product preview card component</title>
+    </head>
+    <body>
+        <main class="product-preview-card-component">
+            <div class="picture-wrapper">
+                <picture>
+                    <source
+                        media="(min-width: 64em)"
+                        srcset="../images/image-product-desktop.jpg"
+                    />
+                    <img
+                        src="../images/image-product-mobile.jpg"
+                        alt="perfume"
+                    />
+                </picture>
+            </div>
+            <div class="product-info">
+                <span class="category">Perfume</span>
+                <h2 class="title">Gabrielle Essence Eau De Parfum</h2>
+                <p class="description">
+                    A floral, solar and voluptuous interpretation composed by
+                    Olivier Polge, Perfumer-Creator for the House of CHANEL.
+                </p>
+                <div class="price-wrapper">
+                    <span class="price">$149.99</span>
+                    <span class="old-price">$169.99</span>
+                </div>
+                <div class="button-wrapper">
+                    <button class="add-to-cart">
+                        <img
+                            src="../images/icon-cart.svg"
+                            alt="add-to-cart-icon"
+                            class="icon"
+                        />
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <div class="attribution">
+            <span>
+                Challenge by
+                <a
+                    href="https://www.frontendmentor.io?ref=challenge"
+                    target="_blank"
+                >
+                    Frontend Mentor
+                </a>
+                . Coded by
+                <a href="https://github.com/rehberbey" target="_blank">
+                    Furkan Rehber
+                </a>
+                .
+            </span>
+        </div>
+    </body>
+</html>

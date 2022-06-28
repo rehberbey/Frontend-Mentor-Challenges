@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Furkan Rehber" />
+
+        <title>Frontend Mentor Challenges</title>
+
+        <meta name="title" content="Frontend Mentor Challenges" />
+        <meta
+            name="description"
+            content="Frontend Mentor adlı bir site keşfettim. Kendimi geliştirmem adına yaptığım projelerin linklerini bu sitede barındırıyorum. İşte benim küçük web portfolyom."
+        />
+        <style>
+            :root {
+                --gray-1: #181818;
+                --gray-2: #363636;
+                --gray-3: #f5f5f5;
+                --primary-color: #369468;
+            }
+            ::selection {
+                background: var(--primary-color);
+                color: var(--gray-1);
+            }
+            body {
+                background: var(--gray-1);
+                color: var(--gray-3);
+                margin: 2rem;
+            }
+            main.grid-template {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 400px);
+                grid-gap: 1rem;
+                grid-auto-rows: auto;
+            }
+            figure {
+                margin: 0;
+                inline-size: 400px;
+                background: var(--gray-2);
+                transition: all 0.2s ease-in-out;
+            }
+            figure:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 10px var(--primary-color);
+            }
+            figure,
+            figure img {
+                border-radius: 0.25rem;
+            }
+            figure > a {
+                color: var(--gray-3);
+                text-decoration: none;
+            }
+            figure > a > figcaption {
+                padding-block: 1rem;
+                text-align: center;
+            }
+            figure img {
+                inline-size: 100%;
+                block-size: auto;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="main-header">Frontend Mentor Challenges</h1>
+        <main class="grid-template">
+            <figure>
+                <a
+                    href="https://rehberbey.github.io/Frontend-Mentor-Challenges/product-preview-card-component-main/dist/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src="./product-preview-card-component-main/design/desktop-light-dark.png"
+                        alt="challenge-1"
+                    />
+                    <figcaption>Product preview card component</figcaption>
+                </a>
+            </figure>
+        </main>
+    </body>
+</html>

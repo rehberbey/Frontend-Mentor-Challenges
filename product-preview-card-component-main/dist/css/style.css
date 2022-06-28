@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+:root {
+  /* Color palette */
+  --primary-color-dark-cyan: hsl(158, 36%, 37%);
+  --primary-color-very-dark-cyan: hsl(157, 36%, 27%);
+  --primary-color-cream: hsl(30, 38%, 92%);
+  --neutral-color-very-dark-blue: hsl(212, 21%, 14%);
+  --neutral-color-dark-grayish-blue: hsl(228, 12%, 48%);
+  --neutral-color-white: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+::-moz-selection {
+  background-color: var(--primary-color-dark-cyan);
+  color: var(--primary-color-cream);
+}
+
+::selection {
+  background-color: var(--primary-color-dark-cyan);
+  color: var(--primary-color-cream);
+}
+
+button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html,
+body {
+  overflow: hidden;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--primary-color-cream);
+  color: var(--neutral-color-dark-grayish-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  font-size: clamp(0.875rem, 1vw + 0.8rem, 1.2rem);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--neutral-color-very-dark-blue);
+    color: var(--primary-color-cream);
+  }
+}
+body,
+body main.product-preview-card-component {
+  transition: all 0.6s ease-in-out;
+}
+
+h2 {
+  color: var(--neutral-color-very-dark-blue);
+  font-size: clamp(1.5rem, 1.2vw + 1.5rem, 2.25rem);
+  font-family: "Fraunces", serif;
+}
+
+main.product-preview-card-component::after, main.product-preview-card-component::before {
+  content: "";
+  background: url(../../images/tropical-leaves.png) center/cover no-repeat;
+  position: absolute;
+  inline-size: 200px;
+  block-size: 200px;
+  z-index: -1;
+}
+
+main.product-preview-card-component {
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  inline-size: min(48em, 90%);
+  block-size: min(48em, 80%);
+  background-color: var(--neutral-color-white);
+  border-radius: 0.5rem;
+}
+main.product-preview-card-component::before {
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  transform: translateY(-50%) rotate(180deg);
+}
+@media (min-width: 64em) {
+  main.product-preview-card-component::before {
+    -webkit-animation: leaf-left-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+            animation: leaf-left-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+  }
+}
+main.product-preview-card-component::after {
+  inset-inline-end: 0;
+  inset-block-start: 0;
+}
+@media (min-width: 64em) {
+  main.product-preview-card-component::after {
+    -webkit-animation: leaf-right-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+            animation: leaf-right-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  main.product-preview-card-component {
+    background-color: var(--neutral-color-very-dark-blue);
+    color: var(--neutral-color-dark-grayish-blue);
+  }
+  h2 {
+    color: var(--primary-color-cream);
+  }
+}
+@media (min-width: 64em) {
+  main.product-preview-card-component {
+    overflow: initial;
+    -webkit-animation: shadow-drop-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+            animation: shadow-drop-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+    flex-flow: column wrap;
+    aspect-ratio: 2;
+  }
+  main.product-preview-card-component > * {
+    flex: 1 1 50%;
+  }
+  main.product-preview-card-component > .picture-wrapper {
+    min-inline-size: 50%;
+    max-block-size: 100%;
+  }
+  main.product-preview-card-component > .picture-wrapper > picture > img {
+    border-start-start-radius: 0.5rem;
+    border-end-start-radius: 0.5rem;
+  }
+}
+@media (min-width: 64em) and (prefers-color-scheme: dark) {
+  main.product-preview-card-component > .picture-wrapper > picture > img {
+    filter: brightness(0.9);
+  }
+  main.product-preview-card-component > .picture-wrapper > picture > img:hover {
+    filter: brightness(1);
+  }
+}
+@media (min-width: 64em) {
+  main.product-preview-card-component > .product-info {
+    padding-inline: 2.25em;
+    overflow-y: auto;
+    inline-size: 50%;
+    row-gap: initial;
+  }
+}
+main.product-preview-card-component > .picture-wrapper {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+main.product-preview-card-component > .picture-wrapper > picture > img {
+  inline-size: 100%;
+  block-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main.product-preview-card-component > .product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 1.25em;
+  row-gap: 1.25em;
+}
+main.product-preview-card-component > .product-info > * {
+  margin: 0;
+}
+main.product-preview-card-component > .product-info > .category {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--neutral-color-dark-grayish-blue);
+}
+@media (min-width: 64em) {
+  main.product-preview-card-component > .product-info > .title {
+    line-height: 1;
+  }
+}
+main.product-preview-card-component > .product-info > .price-wrapper {
+  display: flex;
+  align-items: center;
+}
+main.product-preview-card-component > .product-info > .price-wrapper > span {
+  display: inline-block;
+}
+main.product-preview-card-component > .product-info > .price-wrapper > span.price {
+  font-family: "Fraunces";
+  font-size: 1.75em;
+  color: var(--primary-color-dark-cyan);
+}
+main.product-preview-card-component > .product-info > .price-wrapper > span.old-price {
+  -webkit-margin-start: 1.5em;
+          margin-inline-start: 1.5em;
+  font-size: 0.75em;
+  -webkit-text-decoration: line-through solid var(--neutral-color-dark-grayish-blue);
+          text-decoration: line-through solid var(--neutral-color-dark-grayish-blue);
+  color: var(--neutral-color-dark-grayish-blue);
+}
+main.product-preview-card-component > .product-info > .button-wrapper {
+  min-block-size: calc(10vmin + 0.5em);
+}
+main.product-preview-card-component > .product-info > .button-wrapper > button.add-to-cart {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: var(--primary-color-dark-cyan);
+  color: var(--neutral-color-white);
+  border-radius: 0.5rem;
+  inline-size: 100%;
+  block-size: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+@media (prefers-color-scheme: dark) {
+  main.product-preview-card-component > .product-info > .button-wrapper > button.add-to-cart {
+    color: var(--primary-color-cream);
+  }
+}
+@media (min-width: 64em) {
+  main.product-preview-card-component > .product-info > .button-wrapper > button.add-to-cart {
+    font-size: inherit;
+  }
+  main.product-preview-card-component > .product-info > .button-wrapper > button.add-to-cart > .icon {
+    inline-size: 1.5rem;
+  }
+}
+main.product-preview-card-component > .product-info > .button-wrapper > button.add-to-cart:hover {
+  background-color: var(--primary-color-very-dark-cyan);
+}
+main.product-preview-card-component > .product-info > .button-wrapper > button.add-to-cart > .icon {
+  color: var(--primary-color-dark-cyan);
+  vertical-align: text-bottom;
+  -webkit-margin-end: 0.5em;
+          margin-inline-end: 0.5em;
+}
+
+@-webkit-keyframes leaf-left-animation {
+  to {
+    inset-inline-start: -100px;
+  }
+}
+
+@keyframes leaf-left-animation {
+  to {
+    inset-inline-start: -100px;
+  }
+}
+@-webkit-keyframes leaf-right-animation {
+  100% {
+    inset-inline-end: -100px;
+  }
+}
+@keyframes leaf-right-animation {
+  100% {
+    inset-inline-end: -100px;
+  }
+}
+@-webkit-keyframes shadow-drop-center {
+  to {
+    box-shadow: -10px -10px 50px 30px hsla(158deg, 36%, 37%, 0.1), 10px 10px 50px 30px hsla(158deg, 36%, 37%, 0.1);
+  }
+}
+@keyframes shadow-drop-center {
+  to {
+    box-shadow: -10px -10px 50px 30px hsla(158deg, 36%, 37%, 0.1), 10px 10px 50px 30px hsla(158deg, 36%, 37%, 0.1);
+  }
+}
+.attribution {
+  flex: 0 0 2rem;
+  inline-size: 90%;
+  font-size: 0.7em;
+  position: relative;
+  margin-inline: auto;
+}
+.attribution span {
+  inline-size: -webkit-fit-content;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+}
+.attribution span > a {
+  font-family: "Fraunces", serif;
+  color: var(--primary-color-dark-cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.attribution span > a:hover {
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */
