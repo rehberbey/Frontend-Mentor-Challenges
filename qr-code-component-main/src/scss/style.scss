@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+
+$border-radius: 1.25rem;
+
+:root {
+    --color-white: hsl(0, 0%, 100%);
+    --color-light-gray: hsl(212, 45%, 89%);
+    --color-grayish-blue: hsl(220, 15%, 55%);
+    --color-dark-blue: hsl(218, 44%, 22%);
+    --color-header-bg: var(--color-dark-blue);
+    --color-body-bg: var(--color-light-gray);
+}
+
+* {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+::selection {
+    background: var(--color-grayish-blue);
+    color: var(--color-white);
+}
+
+html,
+body {
+    block-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @media (prefers-color-scheme: dark) {
+        --color-body-bg: var(--color-grayish-blue);
+    }
+    background: url(../../images/image-qr-code.png) left top / 3% auto repeat
+        var(--color-body-bg);
+    background-blend-mode: soft-light;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(0.9rem, 1.9vw + 1rem, 1.2rem);
+    font-weight: 400;
+    line-height: 1.5;
+    &,
+    figure.qr-container {
+        transition-property: background, color;
+        transition: 0.6s ease-in-out;
+    }
+}
+
+h1 {
+    @media (prefers-color-scheme: dark) {
+        --color-header-bg: var(--color-light-gray);
+    }
+    color: var(--color-header-bg);
+    font-size: clamp(1.6rem, 3.8vw + 1.5rem, 1.9rem);
+}
+figure.qr-container {
+    @media (prefers-color-scheme: dark) {
+        background: var(--color-dark-blue);
+    }
+    @media (min-width: 23.5em) {
+        inline-size: 425px;
+        animation: translate-shadow 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            forwards;
+        @keyframes translate-shadow {
+            0% {
+                transform: translateY(0);
+            }
+            45% {
+                transform: translateY(-10px);
+            }
+            90% {
+                transform: translateY(0);
+            }
+            100% {
+                box-shadow: 0 0 45px -10px var(--color-grayish-blue);
+            }
+        }
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-inline-size: min(375px, 95%);
+    block-size: auto;
+    padding: 0.8em;
+    margin-inline: auto;
+    border-radius: $border-radius;
+    background: var(--color-white);
+    color: var(--color-grayish-blue);
+    > img {
+        border-radius: inherit;
+        max-inline-size: min(375px, 100%);
+        object-fit: contain;
+    }
+    > figcaption {
+        @media (min-width: 23.5em) {
+            padding-inline: 0.9em;
+        }
+        margin-block-start: 0.5em;
+        text-align: center;
+    }
+}
+
+.attribution {
+    padding-block: 1rem;
+    inline-size: 90%;
+    font-size: 0.7em;
+    margin-inline: auto;
+    position: relative;
+    span {
+        inline-size: fit-content;
+        position: absolute;
+        inset-inline-start: 50%;
+        inset-block-start: 50%;
+        transform: translate(-50%, -50%);
+        > a {
+            font-weight: 700;
+            color: var(--color-dark-blue);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
