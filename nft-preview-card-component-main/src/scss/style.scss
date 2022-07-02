@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+$border-radius: 1.25rem;
+
+:root {
+    --color-primary-soft-blue: hsl(215, 51%, 70%);
+    --color-primary-cyan: hsl(178, 100%, 50%);
+    --color-neutral-very-dark-blue-1: hsl(217, 54%, 11%);
+    --color-neutral-very-dark-blue-2: hsl(216, 50%, 16%);
+    --color-neutral-very-dark-blue-3: hsl(215, 32%, 27%);
+    --color-neutral-white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+::selection {
+    color: var(--color-neutral-very-dark-blue-1);
+    background-color: var(--color-primary-cyan);
+}
+
+html,
+body {
+    block-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-neutral-very-dark-blue-1);
+    color: var(--color-primary-soft-blue);
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(0.9rem, 1.9vw + 1rem, 1.2rem);
+    font-weight: 300;
+    line-height: 1.5;
+    &::before {
+        @media (min-width: 64em) {
+            opacity: 1;
+        }
+        content: "";
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: block;
+        position: fixed;
+        transform: rotateZ(-25deg);
+        inset-inline-start: -25%;
+        inset-block-start: -25%;
+        inline-size: 70%;
+        aspect-ratio: 1;
+        background: url(../../images/icon-ethereum.svg) center center / contain
+            no-repeat;
+        filter: opacity(0.1) grayscale(0.9) brightness(0.4);
+    }
+}
+
+hr {
+    border: none;
+    block-size: 0.1em;
+    background-color: var(--color-neutral-very-dark-blue-3);
+}
+
+h1 {
+    color: var(--color-neutral-white);
+    font-size: clamp(1.6rem, 3.8vw + 1.5rem, 1.9rem);
+    font-weight: 600;
+}
+
+a {
+    color: var(--color-neutral-white);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    &:hover {
+        color: var(--color-primary-cyan);
+    }
+}
+
+figure.nft-container {
+    @media (min-width: 23.5em) {
+        inline-size: 425px;
+        animation: translate-shadow 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            forwards;
+        @keyframes translate-shadow {
+            0% {
+                transform: translateY(0);
+            }
+            45% {
+                transform: translateY(-10px);
+            }
+            90% {
+                transform: translateY(0);
+            }
+            100% {
+                box-shadow: 0 0 3px var(--color-primary-cyan);
+            }
+        }
+    }
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    max-inline-size: min(375px, 95%);
+    block-size: auto;
+    padding: 0.8em;
+    margin-inline: auto;
+    border-radius: $border-radius;
+    background-color: var(--color-neutral-very-dark-blue-2);
+    > {
+        .nft-image-container {
+            border-radius: $border-radius;
+            max-inline-size: min(375px, 100%);
+            position: relative;
+            cursor: pointer;
+            &:hover,
+            &:focus {
+                &::before,
+                &::after {
+                    opacity: 1;
+                }
+            }
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+            &::before {
+                filter: opacity(0.6);
+                border-radius: $border-radius;
+                background-color: var(--color-primary-cyan);
+            }
+            &::after {
+                background: url(../../images/icon-view.svg) center center / 25%
+                    25% no-repeat;
+            }
+            img.nft-image {
+                border-radius: inherit;
+                inline-size: 100%;
+                object-fit: scale-down;
+            }
+        }
+        figcaption.nft-description {
+            @media (min-width: 23.5em) {
+                padding-inline: 0.9em;
+            }
+            margin-block-start: 0.5em;
+            > {
+                .price-time-container {
+                    font-weight: 400;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    > {
+                        %before-img {
+                            &::before {
+                                content: "";
+                                display: inline-block;
+                                inline-size: 1.2rem;
+                                aspect-ratio: 1;
+                                vertical-align: -2px;
+                                margin-inline-end: 0.25em;
+                            }
+                        }
+                        .price {
+                            @extend %before-img;
+                            &::before {
+                                background: url(../../images/icon-ethereum.svg)
+                                    center center / contain no-repeat;
+                            }
+                            color: var(--color-primary-cyan);
+                        }
+                        .time {
+                            @extend %before-img;
+                            &::before {
+                                background: url(../../images/icon-clock.svg)
+                                    center center / contain no-repeat;
+                            }
+                        }
+                    }
+                }
+                .user-info {
+                    > img.avatar {
+                        margin: 0.5em;
+                        vertical-align: middle;
+                        inline-size: 2.5em;
+                        aspect-ratio: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.attribution {
+    padding-block: 1rem;
+    inline-size: 90%;
+    font-size: 0.7em;
+    margin-inline: auto;
+    position: relative;
+    span {
+        word-spacing: 0.1em;
+        inline-size: fit-content;
+        position: absolute;
+        inset-inline-start: 50%;
+        inset-block-start: 50%;
+        transform: translate(-50%, -50%);
+        > a {
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    }
+}

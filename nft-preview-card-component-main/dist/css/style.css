@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+:root {
+  --color-primary-soft-blue: hsl(215, 51%, 70%);
+  --color-primary-cyan: hsl(178, 100%, 50%);
+  --color-neutral-very-dark-blue-1: hsl(217, 54%, 11%);
+  --color-neutral-very-dark-blue-2: hsl(216, 50%, 16%);
+  --color-neutral-very-dark-blue-3: hsl(215, 32%, 27%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+::-moz-selection {
+  color: var(--color-neutral-very-dark-blue-1);
+  background-color: var(--color-primary-cyan);
+}
+
+::selection {
+  color: var(--color-neutral-very-dark-blue-1);
+  background-color: var(--color-primary-cyan);
+}
+
+html,
+body {
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-neutral-very-dark-blue-1);
+  color: var(--color-primary-soft-blue);
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(0.9rem, 1.9vw + 1rem, 1.2rem);
+  font-weight: 300;
+  line-height: 1.5;
+}
+body::before {
+  content: "";
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: block;
+  position: fixed;
+  transform: rotateZ(-25deg);
+  inset-inline-start: -25%;
+  inset-block-start: -25%;
+  inline-size: 70%;
+  aspect-ratio: 1;
+  background: url(../../images/icon-ethereum.svg) center center/contain no-repeat;
+  filter: opacity(0.1) grayscale(0.9) brightness(0.4);
+}
+@media (min-width: 64em) {
+  body::before {
+    opacity: 1;
+  }
+}
+
+hr {
+  border: none;
+  block-size: 0.1em;
+  background-color: var(--color-neutral-very-dark-blue-3);
+}
+
+h1 {
+  color: var(--color-neutral-white);
+  font-size: clamp(1.6rem, 3.8vw + 1.5rem, 1.9rem);
+  font-weight: 600;
+}
+
+a {
+  color: var(--color-neutral-white);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+a:hover {
+  color: var(--color-primary-cyan);
+}
+
+figure.nft-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  max-inline-size: min(375px, 95%);
+  block-size: auto;
+  padding: 0.8em;
+  margin-inline: auto;
+  border-radius: 1.25rem;
+  background-color: var(--color-neutral-very-dark-blue-2);
+}
+@media (min-width: 23.5em) {
+  figure.nft-container {
+    inline-size: 425px;
+    -webkit-animation: translate-shadow 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation: translate-shadow 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  @-webkit-keyframes translate-shadow {
+    0% {
+      transform: translateY(0);
+    }
+    45% {
+      transform: translateY(-10px);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      box-shadow: 0 0 3px var(--color-primary-cyan);
+    }
+  }
+  @keyframes translate-shadow {
+    0% {
+      transform: translateY(0);
+    }
+    45% {
+      transform: translateY(-10px);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      box-shadow: 0 0 3px var(--color-primary-cyan);
+    }
+  }
+}
+figure.nft-container > .nft-image-container {
+  border-radius: 1.25rem;
+  max-inline-size: min(375px, 100%);
+  position: relative;
+  cursor: pointer;
+}
+figure.nft-container > .nft-image-container:hover::before, figure.nft-container > .nft-image-container:hover::after, figure.nft-container > .nft-image-container:focus::before, figure.nft-container > .nft-image-container:focus::after {
+  opacity: 1;
+}
+figure.nft-container > .nft-image-container::before, figure.nft-container > .nft-image-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+figure.nft-container > .nft-image-container::before {
+  filter: opacity(0.6);
+  border-radius: 1.25rem;
+  background-color: var(--color-primary-cyan);
+}
+figure.nft-container > .nft-image-container::after {
+  background: url(../../images/icon-view.svg) center center/25% 25% no-repeat;
+}
+figure.nft-container > .nft-image-container img.nft-image {
+  border-radius: inherit;
+  inline-size: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+figure.nft-container > figcaption.nft-description {
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em;
+}
+@media (min-width: 23.5em) {
+  figure.nft-container > figcaption.nft-description {
+    padding-inline: 0.9em;
+  }
+}
+figure.nft-container > figcaption.nft-description > .price-time-container {
+  font-weight: 400;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+figure.nft-container > figcaption.nft-description > .price-time-container > .time::before, figure.nft-container > figcaption.nft-description > .price-time-container > .price::before {
+  content: "";
+  display: inline-block;
+  inline-size: 1.2rem;
+  aspect-ratio: 1;
+  vertical-align: -2px;
+  -webkit-margin-end: 0.25em;
+          margin-inline-end: 0.25em;
+}
+figure.nft-container > figcaption.nft-description > .price-time-container > .price {
+  color: var(--color-primary-cyan);
+}
+figure.nft-container > figcaption.nft-description > .price-time-container > .price::before {
+  background: url(../../images/icon-ethereum.svg) center center/contain no-repeat;
+}
+figure.nft-container > figcaption.nft-description > .price-time-container > .time::before {
+  background: url(../../images/icon-clock.svg) center center/contain no-repeat;
+}
+figure.nft-container > figcaption.nft-description > .user-info > img.avatar {
+  margin: 0.5em;
+  vertical-align: middle;
+  inline-size: 2.5em;
+  aspect-ratio: 1;
+}
+
+.attribution {
+  padding-block: 1rem;
+  inline-size: 90%;
+  font-size: 0.7em;
+  margin-inline: auto;
+  position: relative;
+}
+.attribution span {
+  word-spacing: 0.1em;
+  inline-size: -webkit-fit-content;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+}
+.attribution span > a {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */
