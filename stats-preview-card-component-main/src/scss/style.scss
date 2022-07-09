@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap");
+
+$border-radius: 0.5rem;
+
+:root {
+    --c-primary-main-background: hsl(233, 47%, 7%);
+    --c-primary-card-background: hsl(244, 38%, 16%);
+    --c-primary-accent: hsl(277, 64%, 61%);
+    --c-neutral-main-heading: hsl(0, 0%, 100%);
+    --c-neutral-main-paragraph: hsla(0, 0%, 100%, 0.75);
+    --c-neutral-stat-headings: hsla(0, 0%, 100%, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+::selection {
+    background-color: var(--c-primary-accent);
+    color: var(--c-primary-card-background);
+}
+
+html,
+body {
+    block-size: 100%;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(0.8rem, 19.2vw - 3.6rem, 1.2rem);
+    line-height: 1.5;
+    background-color: var(--c-primary-main-background);
+    color: var(--c-neutral-main-paragraph);
+    text-align: center;
+}
+
+%headers {
+    line-height: 1.2;
+    color: var(--c-neutral-main-heading);
+}
+
+h1 {
+    @extend %headers;
+    font-size: clamp(1.5rem, 32vw - 6rem, 2.5rem);
+}
+
+h2 {
+    @extend %headers;
+    font-size: clamp(1.15rem, 9.6vw - 1.1rem, 1.45rem);
+}
+
+a {
+    color: var(--c-primary-accent);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+main {
+    padding: 2rem;
+}
+
+article.stats-preview-card-component {
+    @media (min-width: 64em) {
+        flex-direction: row;
+        max-inline-size: initial;
+        inline-size: min(90%, 48em);
+        block-size: 500px;
+        text-align: start;
+        > * {
+            inline-size: 50%;
+        }
+    }
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-inline-size: 425px;
+    background-color: var(--c-primary-card-background);
+    border-radius: $border-radius;
+    > {
+        .img-side {
+            @media (min-width: 64em) {
+                background-image: url(../../images/image-header-desktop.jpg);
+                border-radius: 0 $border-radius $border-radius 0;
+                min-inline-size: initial;
+                max-block-size: initial;
+                order: 2;
+            }
+            min-inline-size: 100%;
+            aspect-ratio: 109/80;
+            background: url(../../images/image-header-mobile.jpg) center center /
+                cover no-repeat var(--c-primary-accent);
+            background-blend-mode: multiply;
+            filter: brightness(1.5) opacity(0.6);
+            border-radius: $border-radius $border-radius 0 0;
+        }
+        .content-side {
+            @media (min-width: 64em) {
+                padding: 3.5em 2.5em;
+            }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5em;
+            padding: 2em 1.5em;
+            > {
+                * {
+                    margin: 0;
+                }
+                h1.main-title > span.accent-color {
+                    color: var(--c-primary-accent);
+                }
+                .stats {
+                    @media (min-width: 64em) {
+                        flex-direction: row;
+                    }
+                    margin-block-start: 1.2em;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1.5em;
+                    > .stats-items {
+                        > {
+                            * {
+                                flex: 1 1;
+                            }
+                            .stats-text {
+                                margin: 0;
+                            }
+                            .stats-title {
+                                font-family: "Lexend Deca", sans-serif;
+                                color: var(--c-neutral-stat-headings);
+                                text-transform: uppercase;
+                                letter-spacing: 0.12rem;
+                                font-size: 60%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.attribution {
+    inline-size: 90%;
+    block-size: 10%;
+    font-size: 0.7em;
+    margin: auto;
+    position: relative;
+    span {
+        word-spacing: 0.1em;
+        inline-size: fit-content;
+        position: absolute;
+        inset-inline-start: 50%;
+        inset-block-start: 50%;
+        transform: translate(-50%, -50%);
+        > a {
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    }
+}
