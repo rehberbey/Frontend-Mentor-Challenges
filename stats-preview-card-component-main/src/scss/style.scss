@@ -28,6 +28,9 @@ body {
 }
 
 body {
+    @media (min-width: 64em) {
+        font-size: 0.95rem !important;
+    }
     display: grid;
     place-items: center;
     font-family: "Inter", sans-serif;
@@ -44,11 +47,17 @@ body {
 }
 
 h1 {
+    @media (min-width: 64em) {
+        font-size: 1.8rem !important;
+    }
     @extend %headers;
     font-size: clamp(1.5rem, 32vw - 6rem, 2.5rem);
 }
 
 h2 {
+    @media (min-width: 64em) {
+        font-size: 1.3rem !important;
+    }
     @extend %headers;
     font-size: clamp(1.15rem, 9.6vw - 1.1rem, 1.45rem);
 }
@@ -69,13 +78,15 @@ article.stats-preview-card-component {
     @media (min-width: 64em) {
         flex-direction: row;
         max-inline-size: initial;
-        inline-size: min(90%, 48em);
-        block-size: 500px;
+        inline-size: min(90%, 800px);
+        block-size: 325px;
         text-align: start;
+        box-shadow: 0 0 5px 0 var(--c-primary-accent);
         > * {
             inline-size: 50%;
         }
     }
+    transition: box-shadow 1s ease-in-out;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -101,7 +112,7 @@ article.stats-preview-card-component {
         }
         .content-side {
             @media (min-width: 64em) {
-                padding: 3.5em 2.5em;
+                margin: 2em 1em;
             }
             display: flex;
             flex-direction: column;
@@ -118,6 +129,7 @@ article.stats-preview-card-component {
                 .stats {
                     @media (min-width: 64em) {
                         flex-direction: row;
+                        justify-content: space-between;
                     }
                     margin-block-start: 1.2em;
                     display: flex;
