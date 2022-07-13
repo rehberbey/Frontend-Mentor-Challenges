@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+:root {
+  --c-box-bg-1: hsl(31, 77%, 52%);
+  --c-box-bg-2: hsl(184, 100%, 22%);
+  --c-box-bg-3: hsl(179, 100%, 13%);
+  --c-paragraph-color: hsla(0, 0%, 100%, 0.75);
+  --c-main-bg: hsl(0, 0%, 95%);
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-block-size: 100vh;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: clamp(0.95rem, 8vw - 0.9rem, 1.2rem);
+  line-height: 1.5;
+  background-color: var(--c-main-bg);
+  color: var(--c-paragraph-color);
+  transition: background-color 0.5s ease-in-out;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(0, 40, 40);
+  }
+}
+
+h2 {
+  font-family: "Big Shoulders Display", cursive;
+  font-size: clamp(2.5rem, 48vw - 8.7rem, 4rem);
+  color: var(--c-main-bg);
+  text-transform: uppercase;
+}
+
+button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 2rem;
+  border: 0.15rem solid var(--c-main-bg);
+  background-color: var(--c-main-bg);
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition-duration: 0.4s;
+}
+@media (min-width: 64em) {
+  button {
+    -webkit-margin-before: 5rem !important;
+            margin-block-start: 5rem !important;
+  }
+}
+button:hover {
+  background-color: transparent;
+  color: var(--c-main-bg) !important;
+}
+
+a {
+  color: var(--c-box-bg-1);
+}
+a:hover {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  place-content: center;
+  min-block-size: 100vh;
+}
+
+.container {
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 64em) {
+  .container {
+    inline-size: 90%;
+    flex-flow: row wrap;
+    align-items: initial;
+    justify-content: center;
+  }
+}
+
+article.box {
+  inline-size: min(90%, 23.4375em);
+  min-block-size: 400px;
+  padding: 3.5em;
+}
+@media (min-width: 64em) {
+  article.box {
+    inline-size: min(33.3333%, 400px);
+  }
+}
+article.box:hover {
+  -webkit-backdrop-filter: brightness(1.1);
+          backdrop-filter: brightness(1.1);
+}
+article.box > * {
+  margin-block: 1rem;
+}
+article.box.box-3 > .small-icon, article.box.box-2 > .small-icon, article.box.box-1 > .small-icon {
+  inline-size: 30%;
+  aspect-ratio: 1;
+  background: center center/contain no-repeat;
+}
+article.box.box-1 {
+  border-radius: 0.6rem 0.6rem 0 0;
+  background-color: var(--c-box-bg-1);
+}
+@media (min-width: 64em) {
+  article.box.box-1 {
+    border-radius: 0.6rem 0 0 0.6rem;
+  }
+}
+article.box.box-1 > .small-icon {
+  background-image: url(../../images/icon-sedans.svg);
+}
+article.box.box-1 > button {
+  color: var(--c-box-bg-1);
+}
+article.box.box-2 {
+  background-color: var(--c-box-bg-2);
+}
+article.box.box-2 > .small-icon {
+  background-image: url(../../images/icon-suvs.svg);
+}
+article.box.box-2 > button {
+  color: var(--c-box-bg-2);
+}
+article.box.box-3 {
+  border-radius: 0 0 0.6rem 0.6rem;
+  background-color: var(--c-box-bg-3);
+}
+@media (min-width: 64em) {
+  article.box.box-3 {
+    border-radius: 0 0.6rem 0.6rem 0;
+  }
+}
+article.box.box-3 > .small-icon {
+  background-image: url(../../images/icon-luxury.svg);
+}
+article.box.box-3 > button {
+  color: var(--c-box-bg-3);
+}
+
+footer.attribution {
+  padding: 1rem;
+  inline-size: 90vw;
+  block-size: 10vh;
+  font-size: 0.7em;
+  margin: auto;
+}
+@media (prefers-color-scheme: light) {
+  footer.attribution {
+    color: var(--c-box-bg-3);
+  }
+}
+footer.attribution > div {
+  inline-size: -webkit-fit-content;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
+  block-size: 100%;
+  margin: auto;
+}
+footer.attribution > div > span {
+  float: left;
+  word-spacing: 0.1em;
+}
+footer.attribution > div > span:first-child {
+  -webkit-margin-end: 0.8em;
+          margin-inline-end: 0.8em;
+}
+footer.attribution > div > span > a {
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */
