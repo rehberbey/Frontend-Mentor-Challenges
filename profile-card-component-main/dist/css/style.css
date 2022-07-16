@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+:root {
+  --c-main-bg: hsl(185, 75%, 39%);
+  --c-text: hsl(229, 23%, 23%);
+  --c-sub-text: hsl(227, 10%, 46%);
+  --c-border-hr: hsla(0, 0%, 59%, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  block-size: 100vh;
+}
+
+body {
+  position: relative;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  background-image: url(../../images/bg-pattern-top.svg), url(../../images/bg-pattern-bottom.svg);
+  background-position: right calc(47vw + 15%) bottom calc(65vh - 15vw), left calc(40vw + 25%) top calc(72vh - 10vw);
+  background-repeat: no-repeat;
+  background-color: var(--c-main-bg);
+  color: var(--c-text);
+  text-align: center;
+}
+
+a {
+  color: hsl(185deg, 100%, 21%);
+}
+a:hover {
+  text-decoration: none;
+}
+
+article.profile-card {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: 22rem;
+  aspect-ratio: 1;
+  border-radius: 0.8rem;
+  background-color: white;
+  box-shadow: 34px 34px 68px hsl(185deg, 75%, 31%), -34px -34px 68px hsl(185deg, 75%, 47%);
+}
+article.profile-card > .main-section {
+  position: relative;
+  block-size: 75%;
+}
+article.profile-card > .main-section > .img-wrapper {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid white;
+  border-radius: 50%;
+}
+article.profile-card > .main-section > .img-wrapper > img {
+  border-radius: 50%;
+  inline-size: 100%;
+  block-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+article.profile-card > .main-section > .background-section {
+  block-size: 50%;
+  background-image: url(../../images/bg-pattern-card.svg);
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+article.profile-card > .main-section > .info-section {
+  position: relative;
+  block-size: 50%;
+}
+article.profile-card > .main-section > .info-section > .box {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: 20%;
+  transform: translate(-50%, 20%);
+}
+article.profile-card > .main-section > .info-section > .box > .name {
+  font-weight: 700;
+}
+article.profile-card > .main-section > .info-section > .box > .name > .age {
+  color: var(--c-sub-text);
+  font-weight: 400;
+}
+article.profile-card > .main-section > .info-section > .box > .country {
+  color: var(--c-sub-text);
+  font-size: 0.8em;
+}
+article.profile-card > .some-information {
+  block-size: 25%;
+  display: flex;
+  flex-flow: row wrap;
+  place-content: center space-evenly;
+  -webkit-border-before: 1px solid var(--c-border-hr);
+          border-block-start: 1px solid var(--c-border-hr);
+}
+article.profile-card > .some-information > .box > .counter {
+  font-weight: 700;
+}
+article.profile-card > .some-information > .box > .title {
+  font-size: 0.6em;
+  letter-spacing: 0.12em;
+}
+
+footer.attribution {
+  position: fixed;
+  inset-inline-start: 50%;
+  inset-block-end: 0;
+  transform: translateX(-50%);
+  padding: 1rem;
+  inline-size: 90vw;
+  block-size: 10vh;
+  font-size: 0.7em;
+  margin: auto;
+}
+footer.attribution > div {
+  inline-size: -webkit-fit-content;
+  inline-size: -moz-fit-content;
+  inline-size: fit-content;
+  block-size: 100%;
+  margin: auto;
+}
+footer.attribution > div > span {
+  float: left;
+  word-spacing: 0.1em;
+}
+footer.attribution > div > span:first-child {
+  -webkit-margin-end: 0.8em;
+          margin-inline-end: 0.8em;
+}
+footer.attribution > div > span > a {
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */
