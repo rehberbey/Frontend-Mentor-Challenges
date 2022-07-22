@@ -58,8 +58,13 @@
             }
             figure img {
                 inline-size: 100%;
-                block-size: auto;
+                aspect-ratio: 2;
                 object-fit: cover;
+                object-position: top;
+                transition: object-position 1s ease-in-out;
+            }
+            figure img:hover {
+                object-position: bottom;
             }
         </style>
     </head>
