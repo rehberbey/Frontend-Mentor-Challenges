@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+$font-size-header: clamp(1.6rem, 2.2vw + 1.1rem, 2.5rem);
+$font-size-paragraph: clamp(0.9rem, 9.6vw - 1.3rem, 1.2rem);
+
+$radius: 0.3rem;
+
+:root {
+    --c-main-bg: hsl(0, 0%, 98%);
+    --c-main-text: hsl(229, 6%, 66%);
+    --c-header: hsl(234, 12%, 34%);
+    --c-box-border-1: hsl(180, 62%, 55%);
+    --c-box-border-2: hsl(0, 78%, 62%);
+    --c-box-border-3: hsl(34, 97%, 64%);
+    --c-box-border-4: hsl(212, 86%, 64%);
+    --c-box-shadow: hsla(212, 86%, 64%, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-block-size: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-size: $font-size-paragraph;
+    line-height: 1.6em;
+    background-color: var(--c-main-bg);
+    color: var(--c-main-text);
+    > * {
+        max-inline-size: min(90%, 80rem);
+        margin: 5rem auto;
+    }
+}
+
+h1,
+h2 {
+    color: var(--c-header);
+    line-height: initial;
+}
+
+h1 {
+    font-size: $font-size-header;
+    > span {
+        font-weight: 200;
+        color: var(--c-main-text);
+    }
+}
+
+a {
+    color: var(--c-box-border-3);
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+header {
+    text-align: center;
+    > p {
+        @media (min-width: 64em) {
+            margin-inline: auto;
+            inline-size: 50%;
+        }
+        margin-block-start: 1em;
+    }
+}
+
+main {
+    @media (min-width: 64em) {
+        align-items: center;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        .box {
+            &-1 {
+                grid-row-start: 2;
+            }
+            &-2 {
+                align-self: end;
+            }
+            &-3 {
+                align-self: start;
+                grid-row-start: 3;
+            }
+            &-4 {
+                grid-row-start: 2;
+            }
+        }
+    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    > {
+        .box {
+            grid-row-end: span 2;
+            margin-inline: auto;
+            background: white;
+            box-shadow: 0 12px 20px 0 var(--c-box-shadow);
+            border-block-start: 5px solid;
+            border-radius: $radius;
+            padding: 2rem;
+            transition: transform 0.2s;
+            &:hover {
+                transform: scale(1.05);
+            }
+            > p {
+                margin-block-start: 1em;
+            }
+            @mixin box-after-icon {
+                @content;
+                float: right;
+                margin-block-start: 1rem;
+            }
+            &-1 {
+                border-color: var(--c-box-border-1);
+                &::after {
+                    @include box-after-icon {
+                        content: url(../../images/icon-supervisor.svg);
+                    }
+                }
+            }
+            &-2 {
+                border-color: var(--c-box-border-2);
+                &::after {
+                    @include box-after-icon {
+                        content: url(../../images/icon-team-builder.svg);
+                    }
+                }
+            }
+            &-3 {
+                border-color: var(--c-box-border-3);
+                &::after {
+                    @include box-after-icon {
+                        content: url(../../images/icon-karma.svg);
+                    }
+                }
+            }
+            &-4 {
+                border-color: var(--c-box-border-4);
+                &::after {
+                    @include box-after-icon {
+                        content: url(../../images/icon-calculator.svg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer.attribution {
+    background-color: var(--c-box-border-4);
+    color: var(--c-main-bg);
+    border-radius: $radius;
+    padding: 1rem;
+    font-size: 0.7em;
+    > span {
+        word-spacing: 0.1em;
+        > a {
+            font-weight: bolder;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    }
+}
