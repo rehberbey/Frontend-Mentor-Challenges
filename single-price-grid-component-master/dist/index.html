@@ -64,22 +64,14 @@
         </footer>
 
         <script>
-            onload = function () {
-                document.addEventListener("visibilitychange", () => {
-                    if (document.visibilityState === "visible") animateButton();
+            document
+                .querySelector(".signup")
+                .addEventListener("animationend", function () {
+                    this.classList.remove("shake-anim");
+                    setTimeout(() => {
+                        this.classList.add("shake-anim");
+                    }, 0);
                 });
-            };
-
-            function animateButton() {
-                document
-                    .querySelector(".signup")
-                    .addEventListener("animationend", function () {
-                        this.classList.remove("shake-anim");
-                        setTimeout(() => {
-                            this.classList.add("shake-anim");
-                        }, 0);
-                    });
-            }
         </script>
     </body>
 </html>
