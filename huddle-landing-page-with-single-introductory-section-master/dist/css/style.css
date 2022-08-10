@@ -48,7 +48,7 @@ body {
   padding-inline: 2rem;
   font-family: "Poppins", sans-serif;
   font-size: var(--f-size-main);
-  background: var(--c-bg) url(/images/bg-mobile.svg) 0 0/100% no-repeat;
+  background: var(--c-bg) url(../../images/bg-mobile.svg) 0 0/100% no-repeat;
   color: var(--c-text-dark);
 }
 body > * {
@@ -124,7 +124,7 @@ body > footer.attribution > span > a {
 }
 @media (min-width: 85em) {
   body {
-    background-image: url(/images/bg-desktop.svg);
+    background-image: url(../../images/bg-desktop.svg);
     background-size: cover;
     padding: 4rem;
   }
