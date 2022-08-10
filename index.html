@@ -55,6 +55,10 @@
             figure > a > figcaption {
                 padding-block: 1rem;
                 text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                padding-inline: 1em;
             }
             figure img {
                 inline-size: 100%;
@@ -231,5 +235,15 @@
                 </a>
             </figure>
         </main>
+
+        <script>
+            const figcaption = document.querySelectorAll(
+                "figure > a > figcaption",
+            );
+
+            for (const el of figcaption) {
+                el.title = el.innerHTML;
+            }
+        </script>
     </body>
 </html>
