@@ -35,6 +35,7 @@ h1 {
 }
 
 a {
+    color: var(--c-hover);
     &:hover {
         text-decoration: none;
     }
@@ -50,6 +51,8 @@ body {
     > {
         * {
             margin-block: 3em;
+            max-inline-size: 85rem;
+            margin-inline: auto;
         }
         header {
             > img {
