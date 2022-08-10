@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+:root {
+  --c-bg: hsl(257, 40%, 49%);
+  --c-box-shadow: hsl(257, 57%, 23%);
+  --c-hover: hsl(300, 69%, 71%);
+  --c-header: hsl(0, 0%, 100%);
+  --c-text-dark: hsl(257, 100%, 93%);
+  --f-size-header: clamp(1.5rem, 12.8vw - 1.5rem, 1.9rem);
+  --f-size-main: clamp(0.875rem, 4vw - 0.1rem, 1rem);
+}
+
+::-moz-selection {
+  background: var(--c-hover);
+  color: var(--c-bg);
+}
+
+::selection {
+  background: var(--c-hover);
+  color: var(--c-bg);
+}
+
+button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--f-size-header);
+  color: var(--c-header);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  min-block-size: 100vh;
+  padding-inline: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--f-size-main);
+  background: var(--c-bg) url(/images/bg-mobile.svg) 0 0/100% no-repeat;
+  color: var(--c-text-dark);
+}
+body > * {
+  margin-block: 3em;
+}
+body > header > img {
+  inline-size: 50%;
+}
+body > main {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 1.5em;
+  text-align: center;
+}
+body > main > * {
+  flex: 1 1;
+}
+body > main > img#illustration {
+  margin-block: 2em;
+  inline-size: 100%;
+  block-size: auto;
+}
+body > main > .right-side > * {
+  margin-block: 0.875em;
+}
+body > main > .right-side > button#register {
+  font-size: var(--f-size-main);
+  inline-size: 70%;
+  block-size: 3em;
+  background-color: var(--c-header);
+  box-shadow: 0 4px 4px var(--c-box-shadow);
+  color: var(--c-bg);
+  border: none;
+  border-radius: 3em;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+body > main > .right-side > button#register:hover {
+  background-color: var(--c-hover);
+  color: var(--c-header);
+}
+body > footer.attribution {
+  -webkit-margin-before: auto;
+          margin-block-start: auto;
+  text-align: center;
+}
+body > footer.attribution div.social {
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+}
+body > footer.attribution div.social > span.icon {
+  --fa-border-color: currentcolor;
+  --fa-border-padding: 0.5em;
+  --fa-border-radius: 50%;
+  --fa-border-style: solid;
+  --fa-border-width: 1px;
+  margin-inline: 0.25em;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+body > footer.attribution div.social > span.icon:hover {
+  color: var(--c-hover);
+  border-color: currentColor;
+}
+body > footer.attribution > span {
+  padding: 0 0.25em;
+  word-spacing: 0.1em;
+}
+body > footer.attribution > span > a {
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+@media (min-width: 85em) {
+  body {
+    background-image: url(/images/bg-desktop.svg);
+    background-size: cover;
+    padding: 4rem;
+  }
+  body > * {
+    margin-block: 1em;
+  }
+  body > header > img {
+    inline-size: 25%;
+  }
+  body > main {
+    gap: 3em;
+    flex-direction: row;
+    text-align: start;
+  }
+  body > main > .right-side {
+    -webkit-margin-before: 3em;
+            margin-block-start: 3em;
+  }
+  body > main > .right-side > button#register {
+    inline-size: 35%;
+  }
+  body > footer.attribution {
+    text-align: end;
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
+  }
+}/*# sourceMappingURL=style.css.map */
