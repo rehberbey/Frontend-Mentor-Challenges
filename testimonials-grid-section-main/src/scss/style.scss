@@ -129,8 +129,9 @@ main {
         }
         .review {
             &-1 {
-                background: var(--c-box-1) url(/images/bg-pattern-quotation.svg)
-                    right 15% top / auto 25% no-repeat;
+                background: var(--c-box-1)
+                    url(../../images/bg-pattern-quotation.svg) right 15% top /
+                    auto 25% no-repeat;
             }
             &-2 {
                 background-color: var(--c-box-2);
