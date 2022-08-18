@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&display=swap");
+
+$radius: 0.6rem;
+
+:root {
+    --c-box-1: hsl(263, 55%, 52%);
+    --c-box-2: hsl(217, 19%, 35%);
+    --c-box-3: hsl(0, 0%, 100%);
+    --c-box-4: hsl(219, 29%, 14%);
+    --c-main-text: var(--c-box-3);
+    --c-text-dark: var(--c-box-2);
+    --c-body-bg: hsl(210, 46%, 95%);
+    --c-dark-body-bg: hsl(240, 22%, 22%);
+
+    --f-size-header: clamp(1.25rem, 11.2vw - 1.4rem, 1.6rem);
+    --f-size-text: clamp(0.8175rem, 9vw - 1.3rem, 1.1rem);
+}
+
+* {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--c-box-1);
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+h2 {
+    font-size: var(--f-size-header);
+}
+
+body {
+    min-block-size: 100vh;
+    padding: 3rem 1.5rem;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: var(--f-size-text);
+    line-height: 1.4;
+    background-color: var(--c-body-bg);
+    color: var(--c-main-text);
+    > {
+        footer.attribution {
+            text-align: center;
+            margin-block-start: 1rem;
+            color: var(--c-box-4);
+            > span {
+                padding: 0 0.25em;
+                word-spacing: 0.1em;
+                > a {
+                    font-weight: bolder;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    transition: background-color 0.5s, color 0.5s;
+    @media (prefers-color-scheme: dark) {
+        --c-body-bg: var(--c-dark-body-bg);
+        > {
+            main {
+                [class|="review" i] {
+                    opacity: 0.9;
+                }
+            }
+            footer.attribution {
+                color: unset;
+            }
+        }
+    }
+    @media (min-width: 75em) {
+        padding: 3rem;
+    }
+}
+
+main {
+    max-inline-size: 23.5rem;
+    margin-inline: auto;
+    display: grid;
+    gap: 1.5em;
+    > {
+        [class|="review" i] {
+            padding: 2rem;
+            background-color: var(--c-box-1);
+            border-radius: $radius;
+            > {
+                header {
+                    > {
+                        * {
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        .avatar {
+                            inline-size: 3em;
+                            aspect-ratio: 1;
+                            margin-inline-end: 0.75rem;
+                            outline: 2px solid currentColor;
+                            background-color: var(--c-box-2);
+                            border-radius: 50%;
+                            > img {
+                                vertical-align: middle;
+                                inline-size: 100%;
+                                block-size: 100%;
+                                border-radius: inherit;
+                            }
+                        }
+                        .user-info {
+                            > .verify {
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                }
+                div.comment {
+                    > {
+                        h2 {
+                            margin-block: 1rem;
+                        }
+                        p {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+        .review {
+            &-1 {
+                background: var(--c-box-1) url(/images/bg-pattern-quotation.svg)
+                    right 15% top / auto 25% no-repeat;
+            }
+            &-2 {
+                background-color: var(--c-box-2);
+            }
+            &-3 {
+                background-color: var(--c-box-3);
+                color: var(--c-text-dark);
+            }
+            &-4 {
+                background-color: var(--c-box-4);
+            }
+            &-5 {
+                background-color: var(--c-box-3);
+                color: var(--c-text-dark);
+            }
+        }
+    }
+    @media (min-width: 75em) {
+        max-inline-size: 90rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        > {
+            .review {
+                &-1 {
+                    grid-column-end: span 2;
+                    background-size: 25% auto;
+                }
+                &-4 {
+                    grid-column-end: span 2;
+                }
+                &-5 {
+                    grid-row: 1 / -1;
+                    grid-column-end: -1;
+                }
+            }
+        }
+    }
+}

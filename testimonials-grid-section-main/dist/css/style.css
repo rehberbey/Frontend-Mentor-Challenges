@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&display=swap");
+:root {
+  --c-box-1: hsl(263, 55%, 52%);
+  --c-box-2: hsl(217, 19%, 35%);
+  --c-box-3: hsl(0, 0%, 100%);
+  --c-box-4: hsl(219, 29%, 14%);
+  --c-main-text: var(--c-box-3);
+  --c-text-dark: var(--c-box-2);
+  --c-body-bg: hsl(210, 46%, 95%);
+  --c-dark-body-bg: hsl(240, 22%, 22%);
+  --f-size-header: clamp(1.25rem, 11.2vw - 1.4rem, 1.6rem);
+  --f-size-text: clamp(0.8175rem, 9vw - 1.3rem, 1.1rem);
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--c-box-1);
+}
+a:hover {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: var(--f-size-header);
+}
+
+body {
+  min-block-size: 100vh;
+  padding: 3rem 1.5rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: var(--f-size-text);
+  line-height: 1.4;
+  background-color: var(--c-body-bg);
+  color: var(--c-main-text);
+  transition: background-color 0.5s, color 0.5s;
+}
+body > footer.attribution {
+  text-align: center;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+  color: var(--c-box-4);
+}
+body > footer.attribution > span {
+  padding: 0 0.25em;
+  word-spacing: 0.1em;
+}
+body > footer.attribution > span > a {
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    --c-body-bg: var(--c-dark-body-bg);
+  }
+  body > main [class|=review i] {
+    opacity: 0.9;
+  }
+  body > footer.attribution {
+    color: unset;
+  }
+}
+@media (min-width: 75em) {
+  body {
+    padding: 3rem;
+  }
+}
+
+main {
+  max-inline-size: 23.5rem;
+  margin-inline: auto;
+  display: grid;
+  gap: 1.5em;
+}
+main > [class|=review i] {
+  padding: 2rem;
+  background-color: var(--c-box-1);
+  border-radius: 0.6rem;
+}
+main > [class|=review i] > header > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+main > [class|=review i] > header > .avatar {
+  inline-size: 3em;
+  aspect-ratio: 1;
+  -webkit-margin-end: 0.75rem;
+          margin-inline-end: 0.75rem;
+  outline: 2px solid currentColor;
+  background-color: var(--c-box-2);
+  border-radius: 50%;
+}
+main > [class|=review i] > header > .avatar > img {
+  vertical-align: middle;
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: inherit;
+}
+main > [class|=review i] > header > .user-info > .verify {
+  opacity: 0.5;
+}
+main > [class|=review i] > div.comment > h2 {
+  margin-block: 1rem;
+}
+main > [class|=review i] > div.comment > p {
+  opacity: 0.7;
+}
+main > .review-1 {
+  background: var(--c-box-1) url(/images/bg-pattern-quotation.svg) right 15% top/auto 25% no-repeat;
+}
+main > .review-2 {
+  background-color: var(--c-box-2);
+}
+main > .review-3 {
+  background-color: var(--c-box-3);
+  color: var(--c-text-dark);
+}
+main > .review-4 {
+  background-color: var(--c-box-4);
+}
+main > .review-5 {
+  background-color: var(--c-box-3);
+  color: var(--c-text-dark);
+}
+@media (min-width: 75em) {
+  main {
+    max-inline-size: 90rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+  main > .review-1 {
+    grid-column-end: span 2;
+    background-size: 25% auto;
+  }
+  main > .review-4 {
+    grid-column-end: span 2;
+  }
+  main > .review-5 {
+    grid-row: 1/-1;
+    grid-column-end: -1;
+  }
+}/*# sourceMappingURL=style.css.map */
