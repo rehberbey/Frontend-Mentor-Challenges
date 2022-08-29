@@ -17,23 +17,44 @@
   padding: 0;
 }
 
-progress {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-::-webkit-progress-bar {
-  border-radius: 3rem;
+.progress-bar {
+  position: relative;
+  inline-size: 100%;
+  block-size: 1em;
   background-color: var(--c-secondary-bg);
   border: 3px solid var(--c-secondary-bg);
+  border-radius: 3rem;
 }
-
-::-webkit-progress-value {
-  border-radius: inherit;
+.progress-bar > .progress-value {
+  position: relative;
+  overflow: hidden;
   background-image: linear-gradient(to right, var(--c-gradient-1), var(--c-gradient-2));
-  -webkit-transition: width 2s;
-  transition: width 2s;
+  border-radius: inherit;
+  inline-size: 0;
+  block-size: 100%;
+  -webkit-animation: progress 2s 0.5s forwards;
+          animation: progress 2s 0.5s forwards;
+}
+@-webkit-keyframes progress {
+  to {
+    inline-size: 81.5%;
+  }
+}
+@keyframes progress {
+  to {
+    inline-size: 81.5%;
+  }
+}
+.progress-bar > .progress-value::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 2px;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  block-size: 80%;
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 50%;
 }
 
 a {
@@ -139,25 +160,23 @@ main > section.storage-section > p {
   inline-size: -moz-max-content;
   inline-size: max-content;
 }
-main > section.storage-section > progress {
+main > section.storage-section > .progress-bar {
   -webkit-margin-after: 2.5em;
           margin-block-end: 2.5em;
-  inline-size: 100%;
-  position: relative;
 }
-main > section.storage-section > progress::before, main > section.storage-section > progress::after {
-  font-weight: 700;
+main > section.storage-section > .progress-bar::before, main > section.storage-section > .progress-bar::after {
   position: absolute;
   inset-block-start: 100%;
   -webkit-margin-before: 0.5em;
           margin-block-start: 0.5em;
+  font-weight: 700;
 }
-main > section.storage-section > progress::before {
-  content: "0 GB";
+main > section.storage-section > .progress-bar::before {
+  content: attr(data-value) " GB";
   inset-inline-start: 0;
 }
-main > section.storage-section > progress::after {
-  content: "1000 GB";
+main > section.storage-section > .progress-bar::after {
+  content: attr(data-value-max) " GB";
   inset-inline-end: 0;
 }
 main > section.storage-section > .remainder-storage {
@@ -193,7 +212,7 @@ main > section.storage-section > .remainder-storage > strong {
     align-self: end;
     flex-grow: 4;
   }
-  main > section.storage-section > progress {
+  main > section.storage-section > .progress-bar {
     -webkit-margin-after: 1em;
             margin-block-end: 1em;
   }

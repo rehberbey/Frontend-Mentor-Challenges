@@ -21,22 +21,42 @@ $radius: 0.6rem;
     padding: 0;
 }
 
-progress {
-    appearance: none;
-}
-::-webkit-progress-bar {
-    border-radius: 3rem;
+.progress-bar {
+    position: relative;
+    inline-size: 100%;
+    block-size: 1em;
     background-color: var(--c-secondary-bg);
     border: 3px solid var(--c-secondary-bg);
-}
-::-webkit-progress-value {
-    border-radius: inherit;
-    background-image: linear-gradient(
-        to right,
-        var(--c-gradient-1),
-        var(--c-gradient-2)
-    );
-    transition: width 2s;
+    border-radius: 3rem;
+    > .progress-value {
+        position: relative;
+        overflow: hidden;
+        background-image: linear-gradient(
+            to right,
+            var(--c-gradient-1),
+            var(--c-gradient-2)
+        );
+        border-radius: inherit;
+        inline-size: 0;
+        block-size: 100%;
+        animation: progress 2s 0.5s forwards;
+        @keyframes progress {
+            to {
+                inline-size: ((815 * 100) / 1000) * 1%;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            inset-inline-end: 2px;
+            inset-block-start: 50%;
+            transform: translateY(-50%);
+            block-size: 80%;
+            aspect-ratio: 1;
+            background-color: white;
+            border-radius: 50%;
+        }
+    }
 }
 
 a {
@@ -141,25 +161,23 @@ main {
                     margin-block-end: 1em;
                     inline-size: max-content;
                 }
-                progress {
+                .progress-bar {
                     margin-block-end: 2.5em;
-                    inline-size: 100%;
-                    position: relative;
 
                     &::before,
                     &::after {
-                        font-weight: 700;
                         position: absolute;
                         inset-block-start: 100%;
                         margin-block-start: 0.5em;
+                        font-weight: 700;
                     }
 
                     &::before {
-                        content: "0 GB";
+                        content: attr(data-value) " GB";
                         inset-inline-start: 0;
                     }
                     &::after {
-                        content: "1000 GB";
+                        content: attr(data-value-max) " GB";
                         inset-inline-end: 0;
                     }
                 }
@@ -196,7 +214,7 @@ main {
                 align-self: end;
                 flex-grow: 4;
                 > {
-                    progress {
+                    .progress-bar {
                         margin-block-end: 1em;
                     }
                     .remainder-storage {
