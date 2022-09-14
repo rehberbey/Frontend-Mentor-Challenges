@@ -1,0 +1,274 @@
+@import "https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap";
+:root {
+  --c-bg: hsl(0 0% 98%);
+  --c-bg-footer: hsl(0 0% 95%);
+  --c-accent-1: hsl(171 66% 44%);
+  --c-accent-2: hsl(233 100% 69%);
+  --c-dark-accent-1: hsl(171 64% 19%);
+  --c-dark-accent-2: hsl(233 45% 22%);
+  --c-header: hsl(210 10% 33%);
+  --c-paragraph: hsl(202 11% 66%);
+  --f-size-text: clamp(1rem, 3.1vw - 0.5rem, 1.5rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: hsl(0 0% 8%);
+    --c-bg-footer: hsl(0 0% 5%);
+    --c-header: hsl(210 10% 73%);
+    --c-paragraph: hsl(202 11% 56%);
+  }
+  :root img {
+    opacity: 0.8;
+  }
+}
+
+menu.download-app {
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1.2em;
+  inline-size: 80%;
+}
+menu.download-app > li {
+  list-style: none;
+  flex: 1 1 auto;
+  block-size: 3.5em;
+}
+menu.download-app > li > button {
+  cursor: pointer;
+  font-weight: 600;
+  inline-size: 100%;
+  block-size: 100%;
+  border: none;
+  -webkit-border-after: 5px solid;
+          border-block-end: 5px solid;
+  border-radius: 3rem;
+  color: var(--c-bg);
+  transition: scale 0.2s, opacity 0.2s;
+}
+menu.download-app > li > button.install-ios-app {
+  background-color: var(--c-accent-1);
+  border-color: var(--c-dark-accent-1);
+  box-shadow: 0 2px 8px 0 var(--c-accent-1);
+}
+menu.download-app > li > button.install-mac-app {
+  background-color: var(--c-accent-2);
+  border-color: var(--c-dark-accent-2);
+  box-shadow: 0 2px 8px 0 var(--c-accent-2);
+}
+menu.download-app > li > button:hover {
+  scale: 1.03;
+  opacity: 0.9;
+}
+@media (width >= 48em) {
+  menu.download-app {
+    flex-direction: row;
+    inline-size: 60%;
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: var(--c-header);
+}
+
+main img {
+  max-inline-size: 100%;
+  padding-block: 8vh;
+}
+
+a {
+  text-decoration: none;
+  color: var(--c-header);
+}
+a:hover {
+  color: var(--c-accent-1);
+}
+a:hover img {
+  filter: sepia(1) saturate(10) contrast(1) brightness(1.2) hue-rotate(151deg);
+}
+
+body {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: var(--f-size-text);
+  overflow-x: hidden;
+  position: relative;
+  margin-inline: auto;
+  color: var(--c-paragraph);
+  text-align: center;
+}
+body > :not(header) {
+  padding-inline: 1.4rem;
+}
+body > * > * {
+  max-inline-size: 26.5625rem;
+  margin-inline: auto;
+}
+@media (width >= 48em) {
+  body > * > * {
+    max-inline-size: 64rem;
+  }
+}
+
+header {
+  block-size: min(50vh, 18.75rem);
+  background: url("../../src/public/image/bg-header-mobile.png") center top/cover no-repeat;
+  position: relative;
+}
+header > .brand-logo {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: 0;
+  translate: -50% -25%;
+}
+@media (width >= 48em) {
+  header {
+    background-image: url("../../src/public/image/bg-header-desktop.png");
+  }
+}
+
+footer > .container > .logo-wrapper > img {
+  inline-size: 100%;
+}
+
+main {
+  background-color: var(--c-bg);
+}
+main > * {
+  padding-block: 8vh;
+}
+main > section h1:first-child,
+main > section h2:first-child {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+main > section.keep-track .lower {
+  display: flex;
+  flex-direction: column;
+}
+main > section.keep-track .lower-right > .feature {
+  margin-block: 3em;
+}
+main > section.tools > .container {
+  padding-block: 8vh;
+}
+main > section.tools > .container > .tool img {
+  -webkit-padding-after: 1rem;
+          padding-block-end: 1rem;
+}
+@media (width >= 48em) {
+  main > section.keep-track .lower {
+    flex-direction: row;
+  }
+  main > section.keep-track .lower-left {
+    inline-size: 55%;
+    position: absolute;
+    inset-inline-start: -5vw;
+  }
+  main > section.keep-track .lower-right {
+    -webkit-margin-start: auto;
+            margin-inline-start: auto;
+    -webkit-margin-before: 3em;
+            margin-block-start: 3em;
+    inline-size: 40%;
+  }
+  main > section.keep-track .lower-right > .feature {
+    text-align: start;
+  }
+  main > .brands {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+}
+@media (48em <= width < 64em) {
+  main > section.tools > .container {
+    inline-size: 50%;
+    margin-inline: auto;
+  }
+}
+@media (width >= 64em) {
+  main > section.accessibility {
+    -webkit-margin-before: 8vw;
+            margin-block-start: 8vw;
+  }
+  main > section.tools > .container {
+    display: flex;
+    align-items: baseline;
+    gap: 3rem;
+  }
+  main > section.tools > .container > .tool {
+    flex: 1 1;
+  }
+}
+
+footer {
+  display: grid;
+  background-color: var(--c-bg-footer);
+  padding-block: 4vh;
+}
+footer > * {
+  -webkit-margin-after: 3rem;
+          margin-block-end: 3rem;
+}
+footer > .social-icons a {
+  margin-inline: 1em;
+}
+footer > .attribution a {
+  font-weight: bolder;
+  color: var(--c-accent-1);
+}
+footer > .attribution a:hover {
+  opacity: 0.8;
+}
+footer > .container > * {
+  margin-inline: auto;
+}
+footer > .container > .logo-wrapper {
+  inline-size: 3em;
+  padding-block: 4vh;
+}
+footer > .container > .menu .item > a {
+  display: block;
+  margin-block: 1em;
+}
+@media (width >= 64em) {
+  footer {
+    font-size: 0.8em;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: auto auto;
+    gap: 8vh 4vw;
+  }
+  footer > * {
+    margin: 0;
+    inline-size: -webkit-max-content;
+    inline-size: -moz-max-content;
+    inline-size: max-content;
+  }
+  footer > .container {
+    grid-column: 2/span 5;
+  }
+  footer > .container > * {
+    float: left;
+  }
+  footer > .container > .menu {
+    text-align: start;
+  }
+  footer > .container > .menu > .item {
+    float: left;
+    -webkit-margin-start: 4rem;
+            margin-inline-start: 4rem;
+  }
+  footer > .social-icons {
+    grid-column-end: span 2;
+    align-self: center;
+  }
+  footer > .attribution {
+    grid-row-end: -1;
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,337 @@
+@import "https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap";
+
+$assets-path: "../../src/public";
+
+$radius: 3rem;
+$padding-block: 8vh;
+
+:root {
+    --c-bg: hsl(0 0% 98%);
+
+    --c-bg-footer: hsl(0 0% 95%);
+
+    --c-accent-1: hsl(171 66% 44%);
+    --c-accent-2: hsl(233 100% 69%);
+    --c-dark-accent-1: hsl(171 64% 19%);
+    --c-dark-accent-2: hsl(233 45% 22%);
+
+    --c-header: hsl(210 10% 33%);
+
+    --c-paragraph: hsl(202 11% 66%);
+
+    --f-size-text: clamp(1rem, 3.1vw - 0.5rem, 1.5rem);
+
+    @media (prefers-color-scheme: dark) {
+        --c-bg: hsl(0 0% 8%);
+        --c-bg-footer: hsl(0 0% 5%);
+        --c-header: hsl(210 10% 73%);
+        --c-paragraph: hsl(202 11% 56%);
+
+        img {
+            opacity: 0.8;
+        }
+    }
+}
+
+menu.download-app {
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1.2em;
+    inline-size: 80%;
+    > {
+        li {
+            list-style: none;
+            flex: 1 1 auto;
+            block-size: 3.5em;
+            > button {
+                cursor: pointer;
+                font-weight: 600;
+                inline-size: 100%;
+                block-size: 100%;
+                border: none;
+                border: {
+                    block-end: 5px solid;
+                    radius: $radius;
+                }
+                color: var(--c-bg);
+                transition: scale 0.2s, opacity 0.2s;
+                &.install-ios-app {
+                    background-color: var(--c-accent-1);
+                    border-color: var(--c-dark-accent-1);
+                    box-shadow: 0 2px 8px 0 var(--c-accent-1);
+                }
+                &.install-mac-app {
+                    background-color: var(--c-accent-2);
+                    border-color: var(--c-dark-accent-2);
+                    box-shadow: 0 2px 8px 0 var(--c-accent-2);
+                }
+
+                &:hover {
+                    scale: 1.03;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+
+    @media (width >= 48em) {
+        flex-direction: row;
+        inline-size: 60%;
+    }
+}
+
+h1,
+h2,
+h3 {
+    color: var(--c-header);
+}
+
+main img {
+    max-inline-size: 100%;
+    padding-block: $padding-block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--c-header);
+    &:hover {
+        color: var(--c-accent-1);
+        img {
+            filter: sepia(1) saturate(10) contrast(1) brightness(1.2)
+                hue-rotate(151deg);
+        }
+    }
+}
+
+body {
+    font: {
+        family: "Bai Jamjuree", sans-serif;
+        size: var(--f-size-text);
+    }
+    overflow-x: hidden;
+    position: relative;
+    margin-inline: auto;
+    color: var(--c-paragraph);
+    text-align: center;
+    > {
+        :not(header) {
+            padding-inline: 1.4rem;
+        }
+        * > * {
+            max-inline-size: 26.5625rem;
+            margin-inline: auto;
+        }
+    }
+
+    @media (width >= 48em) {
+        > * > * {
+            max-inline-size: 64rem;
+        }
+    }
+}
+
+header {
+    block-size: min(50vh, 18.75rem);
+    background: url("#{$assets-path}/image/bg-header-mobile.png") center top /
+        cover no-repeat;
+    position: relative;
+    > .brand-logo {
+        position: absolute;
+        inset: {
+            inline-start: 50%;
+            block-end: 0;
+        }
+        translate: -50% -25%;
+    }
+
+    @media (width >= 48em) {
+        background-image: url("#{$assets-path}/image/bg-header-desktop.png");
+    }
+}
+
+footer > .container > .logo-wrapper > img {
+    inline-size: 100%;
+}
+
+main {
+    background-color: var(--c-bg);
+
+    > {
+        * {
+            padding-block: $padding-block;
+        }
+
+        section {
+            h1:first-child,
+            h2:first-child {
+                margin-block-start: 0;
+            }
+
+            &.keep-track {
+                .lower {
+                    display: flex;
+                    flex-direction: column;
+                    &-right {
+                        > .feature {
+                            margin-block: 3em;
+                        }
+                    }
+                }
+            }
+            &.tools {
+                > .container {
+                    padding-block: $padding-block;
+                    > .tool {
+                        img {
+                            padding-block-end: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (width >= 48em) {
+        > section {
+            &.keep-track {
+                .lower {
+                    flex-direction: row;
+
+                    &-left {
+                        inline-size: 55%;
+                        position: absolute;
+                        inset-inline-start: -5vw;
+                    }
+                    &-right {
+                        margin: {
+                            inline-start: auto;
+                            block-start: 3em;
+                        }
+                        inline-size: 40%;
+                        > .feature {
+                            text-align: start;
+                        }
+                    }
+                }
+            }
+        }
+
+        > .brands {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+    }
+
+    @media (48em <= width < 64em) {
+        > {
+            section.tools {
+                > .container {
+                    inline-size: 50%;
+                    margin-inline: auto;
+                }
+            }
+        }
+    }
+
+    @media (width >= 64em) {
+        > section {
+            &.accessibility {
+                margin-block-start: 8vw;
+            }
+
+            &.tools {
+                > .container {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 3rem;
+                    > .tool {
+                        flex: 1 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    display: grid;
+    background-color: var(--c-bg-footer);
+    padding-block: $padding-block / 2;
+    > {
+        * {
+            margin-block-end: 3rem;
+        }
+        .social-icons {
+            a {
+                margin-inline: 1em;
+            }
+        }
+        .attribution a {
+            font-weight: bolder;
+            color: var(--c-accent-1);
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        .container > {
+            * {
+                margin-inline: auto;
+            }
+            .logo-wrapper {
+                inline-size: 3em;
+                padding-block: $padding-block / 2;
+            }
+            .menu {
+                .item > a {
+                    display: block;
+                    margin-block: 1em;
+                }
+            }
+        }
+    }
+
+    @media (width >= 64em) {
+        font-size: 0.8em;
+        grid-template: {
+            columns: repeat(9, 1fr);
+            rows: auto auto;
+        }
+        gap: 8vh 4vw;
+        > {
+            * {
+                margin: 0;
+                inline-size: max-content;
+            }
+            .container {
+                grid-column: 2 / span 5;
+                > {
+                    * {
+                        float: left;
+                    }
+                    .menu {
+                        text-align: start;
+                        > .item {
+                            float: left;
+                            margin-inline-start: 4rem;
+                        }
+                    }
+                }
+            }
+            .social-icons {
+                grid-column-end: span 2;
+                align-self: center;
+            }
+            .attribution {
+                grid: {
+                    row-end: -1;
+                    column: 1 / -1;
+                }
+                justify-self: center;
+            }
+        }
+    }
+}
